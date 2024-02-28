@@ -1,0 +1,5 @@
+
+[[providers]]
+name = "Google"
+search_url = "https://www.google.com/search?q={}"
+aliases = ["g"]
