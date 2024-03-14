@@ -1,2 +1,6 @@
 /target
-.env
+.direnv
+
+.env*
+!.env*.example
+!.envrc

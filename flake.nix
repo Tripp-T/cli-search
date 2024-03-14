@@ -8,9 +8,17 @@
 		flake-utils.lib.eachDefaultSystem
 			(system: let
 				pkgs = nixpkgs.legacyPackages.${system};
-				shell = import ./shell.nix { inherit pkgs; };
 			in {
-				devShells.default = shell;
+				devShells.default = pkgs.mkShell {
+					nativeBuildInputs = with pkgs; [
+						rustup
+						rust-analyzer
+						cargo-watch
+						clippy
+						pkg-config
+						openssl
+					];
+				};
 				# TODO: Configure builds and checks to be done via nix flake
 			});
 }
